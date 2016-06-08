@@ -1,1 +1,1 @@
-testing bump-major
+testing version-triggers
