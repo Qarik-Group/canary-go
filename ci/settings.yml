@@ -1,0 +1,18 @@
+---
+meta:
+  name: canary-go
+  target: sw
+
+  aws:
+    access_key: (( vault "secret/aws/cfcommunity:access" ))
+    secret_key: (( vault "secret/aws/cfcommunity:secret" ))
+
+  github:
+    owner: starkandwayne
+    repo: canary-go
+    access_token: (( vault "secret/pipelines/canary-go/github:token" ))
+    private_key: (( vault "secret/pipelines/canary-go/github:private" ))
+
+  slack:
+    channel: "#botspam"
+    webhook: (( vault "secret/pipelines/canary-go/slack:webhook" ))

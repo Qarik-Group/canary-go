@@ -22,3 +22,15 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+.DS_Store
+
+/canary-go
+/canary-go*
+release
+releases
+artifacts
+ci/credentials.yml
+
+.svtoken
+*.swp
