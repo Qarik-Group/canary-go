@@ -1,7 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
+
+var Version = "(development)"
 
 func main() {
-	fmt.Printf("Hello World!\n")
+	fmt.Fprintf(os.Stderr, "%s - Version %s\n", os.Args[0], Version)
 }
