@@ -51,6 +51,7 @@ godep restore
 go get github.com/mitchellh/gox
 popd
 
+export CGO_ENABLED=0
 
 pushd $REPO_ROOT
 mkdir artifacts
