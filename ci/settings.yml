@@ -1,7 +1,8 @@
 ---
 meta:
   name: canary-go
-  target: sw
+  target: sw-staging
+  url: (( vault "secret/pipelines/concourse:url" ))
 
   aws:
     access_key: (( vault "secret/aws/cfcommunity:access" ))
@@ -14,5 +15,24 @@ meta:
     private_key: (( vault "secret/pipelines/canary-go/github:private" ))
 
   slack:
-    channel: "#botspam"
+    channel: "#concourse"
     webhook: (( vault "secret/pipelines/canary-go/slack:webhook" ))
+
+jobs:
+- name: shipit
+  plan:
+    - (( inline ))
+    - do:
+      - (( merge ))
+      - name: inputs
+        aggregate:
+        - (( merge on get ))
+        - get: git
+          trigger: true
+      on_success:
+        put: notify
+        params:
+          channel:  (( grab meta.slack.channel ))
+          username: (( grab meta.slack.username ))
+          icon_url: (( grab meta.slack.icon ))
+          text:     (( concat meta.slack.success_moji " " meta.name " has succeeded through all steps!" ))
