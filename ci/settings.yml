@@ -2,7 +2,7 @@
 meta:
   name: canary-go
   target: sw-staging
-  url: (( vault "secret/pipelines/concourse:url" ))
+  url: (( vault "secret/pipelines/concourse:staging-url" ))
 
   aws:
     access_key: (( vault "secret/aws/cfcommunity:access" ))
