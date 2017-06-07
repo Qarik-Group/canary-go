@@ -17,7 +17,7 @@ meta:
   target:   (( param "Please identify the name of the target Concourse CI" ))
   pipeline: (( grab meta.name ))
 
-  image:    'starkandwayne/concourse-go'
+  image:    starkandwayne/concourse-go
 
   go:
     version: 1.7
@@ -74,7 +74,7 @@ jobs:
             platform: linux
             image_resource:
               type: docker-image
-              source: 
+              source:
                 repository: (( grab meta.image ))
                 tag: (( grab meta.go.version ))
             inputs:
@@ -166,7 +166,7 @@ jobs:
           config:
             image_resource:
               type: docker-image
-              source: 
+              source:
                 repository: (( grab meta.image ))
                 tag: (( grab meta.go.version ))
             platform: linux
