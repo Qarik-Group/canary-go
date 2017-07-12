@@ -15,7 +15,7 @@ meta:
     private_key: (( vault "secret/pipelines/canary-go/github:private" ))
 
   slack:
-    channel: "#concourse"
+    channel: "#snw-infrastructure"
     webhook: (( vault "secret/pipelines/canary-go/slack:webhook" ))
     success_url: '(( concat meta.url "/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME" ))'
 
