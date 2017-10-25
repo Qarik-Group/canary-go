@@ -4,6 +4,10 @@ meta:
   target: sw-staging
   url: (( vault "secret/pipelines/concourse:staging-url" ))
 
+  git:
+    email:  ci@starkandwayne.com
+    name:   "CI Bot"
+
   aws:
     access_key: (( vault "secret/aws/cfcommunity:access" ))
     secret_key: (( vault "secret/aws/cfcommunity:secret" ))
